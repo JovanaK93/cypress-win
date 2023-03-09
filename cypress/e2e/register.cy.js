@@ -118,20 +118,19 @@ describe ("Registration tests", () => {
       cy.url().should("contain", "/register");
     })
 
-    // sa pogresnim domenom uspe da se registruje
-    /* it.only("Try to register with invalid email domain.", () => {
+    it("Try to register with invalid email domain.", () => {
       cy.visit("/");
       cy.get(".nav-link").eq(2).click();
       cy.get("#first-name").type("Petar");
       cy.get("#last-name").type("Petrovic");
-      cy.get("#email").type("testcy@test.c");
+      cy.get("#email").type("testcy@test.o");
       cy.get("#password").type("testpass123");
       cy.get("#password-confirmation").type("testpass123");
       cy.get(".form-check-input").check();
       cy.get("button").click();
-      cy.wait(3000);
+      cy.wait(2000);
       cy.url().should("contain", "/register");
-    }) */
+    })
 
     it("Try to register without a checked box 'I accept terms and conditions'", () => {
       cy.visit("/");
@@ -165,17 +164,17 @@ describe ("Registration tests", () => {
       cy.url().should("contain", "/register");
     })
 
-    it("Register with valid credentials", () => {
+    it.only("Register with valid credentials", () => {
       cy.visit("/");
       cy.get(".nav-link").eq(2).click();
       cy.get("#first-name").type("Petar");
       cy.get("#last-name").type("Petrovic");
-      cy.get("#email").type("testcy@gmail.com");
+      cy.get("#email").type("testcy26@gmail.com");
       cy.get("#password").type("testpass123");
       cy.get("#password-confirmation").type("testpass123");
       cy.get(".form-check-input").check();
       cy.get("button").click();
-      cy.url().should("contain", "/register");
+      cy.url().should("not.contain", "/register");
     })
 
   })
