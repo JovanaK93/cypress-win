@@ -164,7 +164,7 @@ describe ("Registration tests", () => {
       cy.url().should("contain", "/register");
     })
 
-    it.only("Register with valid credentials", () => {
+    it("Register with valid credentials", () => {
       cy.visit("/");
       cy.get(".nav-link").eq(2).click();
       cy.get("#first-name").type("Petar");
