@@ -1,5 +1,13 @@
 class CreatePage {
 
+  get createGalleryHeading() {
+    return cy.get("h1");
+  }
+
+  get createGalleryLink() {
+    return cy.get(".nav-link").eq(2);
+  }
+
     get titleInput() {
       return cy.get("#title");
     }
@@ -28,7 +36,7 @@ class CreatePage {
       return cy.get(":submit").eq(1);
     }
   
-    createGallery(title, description, imageUrl) {
+    createGallery(title, description, url) {
       this.titleInput.type(title);
       this.descriptionInput.type(description);
       this.imageUrlInput.type(url);

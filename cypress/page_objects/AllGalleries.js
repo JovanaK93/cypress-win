@@ -1,5 +1,9 @@
 class HomePage {
 
+    get allGalleriesHeading() {
+        return cy.get("h1");
+      }
+
     get filterBox() {
       return cy.get(":text");
     }
