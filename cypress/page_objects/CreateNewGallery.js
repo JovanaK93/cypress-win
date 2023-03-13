@@ -9,17 +9,17 @@ class CreatePage {
     }
   
     get imageUrlInput() {
-      return cy.get("#imageUrl");
+      return cy.get(":url");
     }
   
     get submitButton() {
-      return cy.contains("Submit");
+      return cy.get(":submit").eq(0);
     }
   
     createGallery(title, description, imageUrl) {
       this.titleInput.type(title);
       this.descriptionInput.type(description);
-      this.imageUrlInput.type(imageUrl);
+      this.imageUrlInput.type(url);
       this.submitButton.click();
     }
   }
