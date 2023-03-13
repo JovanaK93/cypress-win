@@ -9,18 +9,33 @@ class CreatePage {
     }
   
     get imageUrlInput() {
-      return cy.get(":url");
+      return cy.get(":url").eq(2);
+    }
+
+    get addImageBtn() {
+      return cy.get("button").eq(2);
+    }
+
+    get secondImageInput() {
+      return cy.get(":url").eq(3)
     }
   
     get submitButton() {
       return cy.get(":submit").eq(0);
+    }
+
+    get cancelBtn() {
+      return cy.get(":submit").eq(1);
     }
   
     createGallery(title, description, imageUrl) {
       this.titleInput.type(title);
       this.descriptionInput.type(description);
       this.imageUrlInput.type(url);
+      this.addImageBtn.click();
+      this.secondImageInput.type(url);
       this.submitButton.click();
+      this.cancelBtn.click();
     }
   }
   

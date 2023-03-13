@@ -15,24 +15,13 @@ class HomePage {
     get firstGalleryTitle() {
       return cy.get(".box-title").first();
     }
-    
-  
-    enterFilterText(filterText) {
+
+    homePage(filterText) {
       this.filterBox.type(filterText);
-    }
-
-    clickFilterButton() {
       this.filterButton.click();
-    }
-  
-    clickLoadMoreButton() {
       this.loadMoreButton.click();
-    }
-
-    clickFirstGalleryTitle() {
       this.firstGalleryTitle.click();
-    }
   }
+}
   
   export const homePage = new HomePage();
-  
