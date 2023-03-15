@@ -1,4 +1,4 @@
-class HomePage {
+class AllGalleries {
 
     get allGalleriesHeading() {
         return cy.get("h1");
@@ -20,12 +20,12 @@ class HomePage {
       return cy.get(".box-title").first();
     }
 
-    homePage(filterText) {
+    allGalleriesPage(filterText) {
       this.filterBox.type(filterText);
       this.filterButton.click();
       this.loadMoreButton.click();
       this.firstGalleryTitle.click();
-  }
-}
+  };
+};
   
-  export const homePage = new HomePage();
+  export const allGalleries = new AllGalleries();

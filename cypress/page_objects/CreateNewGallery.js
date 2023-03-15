@@ -1,4 +1,4 @@
-class CreatePage {
+class CreateNewGallery {
 
   get createGalleryHeading() {
     return cy.get("h1");
@@ -44,7 +44,7 @@ class CreatePage {
       this.secondImageInput.type(url);
       this.submitButton.click();
       this.cancelBtn.click();
-    }
-  }
+    };
+  };
   
-  export const createPage = new CreatePage();
+  export const createNewGallery = new CreateNewGallery();

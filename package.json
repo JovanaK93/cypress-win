@@ -1,7 +1,6 @@
 {
   "name": "cypress-win",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,5 +9,15 @@
   "license": "ISC",
   "dependencies": {
     "cypress": "^12.7.0"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JovanaK93/cypress-win.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JovanaK93/cypress-win/issues"
+  },
+  "homepage": "https://github.com/JovanaK93/cypress-win#readme",
+  "description": ""
 }
