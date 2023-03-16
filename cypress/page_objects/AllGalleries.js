@@ -1,11 +1,16 @@
-class AllGalleries {
+class AllGalleriesPage {
 
     get allGalleriesHeading() {
         return cy.get("h1");
-      }
+    }
 
-    get filterBox() {
-      return cy.get(":text");
+    get galleriesGrid() {
+    return cy.get(".grid");
+    }
+
+    search(searchTerm) {
+      this.searchInput.type(searchTerm);
+      this.filterButton.click();
     }
   
     get filterButton() {
@@ -28,4 +33,4 @@ class AllGalleries {
   };
 };
   
-  export const allGalleries = new AllGalleries();
+  export const allGalleriesPage = new AllGalleriesPage();

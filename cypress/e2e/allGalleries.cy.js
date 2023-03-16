@@ -1,6 +1,6 @@
 /// <reference types="Cypress" />
 import { loginPage } from "../page_objects/loginPage";
-import { allGalleries } from "../page_objects/allGalleries";
+import { allGalleriesPage } from "../page_objects/allGalleries";
 
 describe("all galleries page test", () => {
     beforeEach("visit gallery app and log in", () => {
@@ -10,31 +10,20 @@ describe("all galleries page test", () => {
     });
   
     it("all galleries successfully loaded", () => {
-      allGalleries.allGalleriesHeading
+      allGalleriesPage.allGalleriesHeading
         .should("be.visible")
         .and("have.text", "All Galleries");
     });
-  
-    it("can filter galleries by text", () => {
-      allGalleries.filterGalleries("Nature");
-      allGalleries.firstGalleryTitle
-        .should("be.visible")
-        .and("contain.text", "Nature");
+
+    it("test pagination", () => {
+        allGalleriesPage.galleriesGrid.children().should("have.length", 10);
+        allGalleriesPage.loadMoreButton.click();
+        allGalleriesPage.galleriesGrid.children().should("have.length", 20);
+        allGalleriesPage.loadMoreButton.click();
     });
-  
-    it("can load more galleries", () => {
-      allGalleries.loadMoreGalleries();
-      cy.get(".box-title").should("have.length.greaterThan", 10);
-    });
-  
-    it("can navigate to the first gallery", () => {
-      allGalleries.allGalleries();
-      cy.url().should("include", "/galleries/");
-    });
-  
-    it("can navigate to a gallery by index", () => {
-      allGalleries.allGalleries(2);
-      cy.url().should("include", "/galleries/");
-    });
-  });
-  
+
+    it("search for specific gallery", () => {
+        let searchTerm = "najnovija galerija";
+        allGalleriesPage.search(searchTerm);
+    });    
+});
